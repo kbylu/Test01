@@ -12,39 +12,70 @@
     <link href="style.css" rel="stylesheet">
     <link href="normalize.css" rel="stylesheet">
 
-    <title>Test01</title>
+    <title>KBY Creative</title>
   </head>
-
-
   <body>
+    <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <div class="container">
-      <section class="header">
-        <h2>Welcome, to the beginning.</h2>
-        <div class="row">
-          <div class="col-sm">
-            This is my first website test. This is the first column of this row.
-          </div>
-          <div class="col-sm">
-            The second column of this row. Im using BootStrap and Normalize.css as the boiler plate code.
-          </div>
-          <div class="col-sm">
-            I hope this project will teach me many useful things.
-          </div>
+      <div class="topnav" id="myTopnav">
+        <a href="#home" class="active">KBY CREATIVE</a>
+        <a href="#about">ABOUT</a>
+        <a href="#contact">CONTACT</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="container">
+      <section class="gallery">
+
+        <div class="foreword">
+          <h1>For those I know...</h1>
+          <p>Welcome to the Gallery! This is a side project of mine where I'd like to display the faces of my peers. </p>
+          <p>If you would like to add yourself to the Wall, feel free to get in touch with me!</p>
         </div>
+
       </section>
     </div>
-  
-  
+    
+
+
+    <nav class="navbar navbar-light fixed-bottom navbar-expand-md">
+      <div class="container">
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> ☰
+          </button>
+          <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav ml-auto">
+                      <a href="#facebookicon" class="nav-link"><i class="fa fa-facebook fa-lg"></i></a>
+                  <li>
+                      <a href="#instagramicon" class="nav-link"><i class="fa fa-instagram fa-lg"></i></a>
+                  <li>
+                      <a href="#linkedin" class="nav-link"><i class="fa fa-linkedin fa-lg"></i></a>
+                  </li>
+              </ul>
+            </div>
+      </div>
+    </nav>
+
+
+
+    <!--NavBar script for selecting current item-->
+    <script>
+      function myFunction() {
+      var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+    </script>
 
     <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
-    -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" 
+            crossorigin="anonymous"></script>
   </body>
 </html>
