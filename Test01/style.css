@@ -3,6 +3,7 @@
   src: url(resource/font/raleway_variable.ttf);
 }
 
-.gallery {
-  margin-top: 5rem;
+.gallery a img{
+  width: 100%;
+  height: auto;
 }

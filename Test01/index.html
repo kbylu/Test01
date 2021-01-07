@@ -21,19 +21,8 @@
 
 
   <body>
-    <!-- Bootstrap 5 JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" 
-            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" 
-            crossorigin="anonymous"></script>
-    <!-- Jquery 3-->
-    <script src ="resource/package/jquery/jquery-3.5.1.min.js"></script>
-    <!-- FancyBox JS-->
-    <script src="resource/package/fancybox/jquery.fancybox.min.js"></script>
-
-
-
     <!--Top Navigation Menu-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar mb-5 navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">KBY CREATIVE</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,29 +48,76 @@
     </nav>
 
     <main>
-      <div class="container">
-        <section class="gallery">
-          <div class="text-center">
-            <h1>Gallery</h1>
-            <p>KBY Creatives</p>
+      <section class="gallery">
+        <div class="container">
+          <div class="row">
+            <div class="col-3">
+              <div class="row">
+                <h1>2020</h1>
+                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+              </div>
+            </div>
+            <div class="col-9">
+              <div class="row">
+                <h1>Gallery</h1>
+              </div>
+              <div class="row">
+                <div class="col-6 col-lg-4">
+                  <figure class="my-4">
+                    <a href="resource/image/01.jpg" data-fancybox="image" data-caption="Caption #1">
+                      <img src="resource/image/01.jpg" alt="" />
+                    </a>
+                  </figure>
+                  <figure class="my-4">
+                    <a href="resource/image/02.jpg" data-fancybox="image" data-caption="Caption #1">
+                      <img src="resource/image/02.jpg" alt="" />
+                    </a>
+                  </figure>
+                </div>
+                <div class="col-6 col-lg-4">
+                  <figure class="my-4">
+                    <a href="resource/image/03.jpg" data-fancybox="image" data-caption="Caption #1">
+                      <img src="resource/image/03.jpg" alt="" />
+                    </a>
+                  </figure>
+                  <figure class="my-4">
+                    <a href="resource/image/05.jpg" data-fancybox="image" data-caption="Caption #1">
+                      <img src="resource/image/05.jpg" alt="" />
+                    </a>
+                  </figure>
+                  <figure class="my-4">
+                    <a href="resource/image/06.jpg" data-fancybox="image" data-caption="Caption #1">
+                      <img src="resource/image/06.jpg" alt="" />
+                    </a>
+                  </figure>
+                </div>
+                <div class="col-6 col-lg-4">
+                  <figure class="my-4">
+                    <a href="resource/image/04.jpg" data-fancybox="image" data-caption="Caption #1">
+                      <img src="resource/image/04.jpg" alt="" />
+                    </a>
+                  </figure>
+                  <figure class="my-4">
+                    <a href="resource/image/07.jpg" data-fancybox="image" data-caption="Caption #1">
+                      <img src="resource/image/07.jpg" alt="" />
+                    </a>
+                  </figure>
+                </div>
+              </div>
+            </div>
+
+
           </div>
-
-          <a href="resource/image/01.jpg" data-fancybox="gallery" data-caption="Caption #1">
-            <img src="resource/image/01.jpg" alt="" />
-          </a>
-          
-          <a href="resource/image/02.jpg" data-fancybox="gallery" data-caption="Caption #2">
-            <img src="resource/image/02.jpg" alt="" />
-          </a>
-
-
-        </section>
-      </div>
+        </div>
+    </section>
     </main>
     
 
-    <!--Footer NavBar Social Media Icons-->
-    <nav class="navbar fixed-bottom navbar-expand navbar-light bg-light">
+    <!--Footer Social Media Icons-->
+    <nav class="navbar navbar-expand navbar-light bg-light">
       <div class="container">
         <div class="navbar">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -98,5 +134,36 @@
         </div>
       </div>
     </nav>
+
+
+
+
+    
+    <!-- Bootstrap 5 JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" 
+            crossorigin="anonymous"></script>
+    <!-- Jquery 3-->
+    <script src ="resource/package/jquery/jquery-3.5.1.min.js"></script>
+    <!-- FancyBox JS-->
+    <script src="resource/package/fancybox/jquery.fancybox.min.js"></script>
+    <!-- Edit FancyBox Properties -->
+    <script>
+      $('[data-fancybox]').fancybox({
+        animationEffect : "slide",
+        transitionEffect: "circular",
+        loop: true,
+        buttons: [
+        //"zoom",
+        //"share",
+        //"slideShow",
+        //"fullScreen",
+        //"download",
+        "thumbs",
+        "close"
+        ]
+      })
+    </script>
+
   </body>
 </html>
