@@ -9,6 +9,8 @@
           rel="stylesheet" 
           integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
           crossorigin="anonymous">
+    <!-- FancyBox CSS -->
+    <link rel="stylesheet" href="resource/package/fancybox/jquery.fancybox.min.css">
     <!-- Main Stylesheets -->
     <link href="style.css" rel="stylesheet">
     <link href="normalize.css" rel="stylesheet">
@@ -18,9 +20,18 @@
   </head>
 
 
-
-
   <body>
+    <!-- Bootstrap 5 JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" 
+            crossorigin="anonymous"></script>
+    <!-- Jquery 3-->
+    <script src ="resource/package/jquery/jquery-3.5.1.min.js"></script>
+    <!-- FancyBox JS-->
+    <script src="resource/package/fancybox/jquery.fancybox.min.js"></script>
+
+
+
     <!--Top Navigation Menu-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
@@ -55,16 +66,17 @@
             <p>KBY Creatives</p>
           </div>
 
-
-
-
-
-
+          <a href="resource/image/01.jpg" data-fancybox="gallery" data-caption="Caption #1">
+            <img src="resource/image/01.jpg" alt="" />
+          </a>
+          
+          <a href="resource/image/02.jpg" data-fancybox="gallery" data-caption="Caption #2">
+            <img src="resource/image/02.jpg" alt="" />
+          </a>
 
 
         </section>
       </div>
-      
     </main>
     
 
@@ -86,10 +98,5 @@
         </div>
       </div>
     </nav>
-
-    <!-- Bootstrap 5 JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" 
-            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" 
-            crossorigin="anonymous"></script>
   </body>
 </html>
