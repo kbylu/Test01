@@ -73,19 +73,22 @@
                             </div>
                             <div class="modal-body">
                                 <!-- Progress Bar-->
+                                
+
+
                                 <div class="progress">
                                     <div class="progress-bar progress-bar-striped progress-bar-animated" 
-                                         role="progressbar" id="progressBar" style="width: 0%" aria-valuenow="0" 
+                                         role="progressbar" id="progressBar" style="width: 10%" aria-valuenow="10" 
                                          aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
+
+
                                 <!-- Choose picture button-->
-                                <div class="d-grid col-6 mx-auto">
-                                    <button class="btn btn-primary" type="button" id="choosePicture">Choose File</button>
-                                </div>
+                                <input type="file" id="file-selector">
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                              <button type="button" class="btn btn-primary">Submit</button>
+                              <button type="button" class="btn btn-primary">Upload</button>
                             </div>
                           </div>
                         </div>
@@ -180,7 +183,7 @@
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 
-    <script src="/__/firebase/8.2.5/firebase-storage.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-storage.js"></script>
 
     
     <script>
@@ -198,30 +201,43 @@
     // Initialize Firebase  
     firebase.initializeApp(firebaseConfig);
 
-
-
-
     // UPLOADING IMAGES 
 
-    // Service Ref
-    var storage = firebase.storage();
-    // Root Ref
-    var storageRef = storage.ref();
-    // Images Reg
-    var imageref = storageref.child('images');
     // Progress Bar
     var progressBar = document.getElementById("progressBar");
     // file Button
-    var fileButton = document.getElementById("choosePicture");
+    var fileButton = document.getElementById("file-selector");
 
     //Listen for File Selection
     fileButton.addEventListener('change', function(e){
+
       //Get file
       var file = e.target.files[0];
+
       //Create Storage reference
-      
+      var storageRef = firebase.storage().ref('image/' + file.name);
+
+      //Upload file
+      var task = storageRef.put(file);
+
       //Update progress bar
-    }
+      task.on('state changed',
+
+        function progress(snapshot){
+          var percentage = (snapshot.bytesTransferred / 
+          snapshot.totalBytes) * 100;
+          progressBar.value = percentage;
+        },
+
+        function error(err){
+
+        },
+
+        function complete(){
+
+        }
+      );
+    });
 
     </script>
 
