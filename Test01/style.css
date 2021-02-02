@@ -2,12 +2,13 @@
   font-family: Raleway;
   src: url(resource/font/raleway_variable.ttf);
 }
-
 .gallery a img{
   width: 100%;
   height: auto;
 }
-
 .progress {
   margin-bottom: 2rem;
+}
+.upload-section{
+  visibility: hidden;
 }
