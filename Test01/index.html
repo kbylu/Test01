@@ -73,22 +73,22 @@
                             </div>
                             <div class="modal-body">
                                 <!-- Progress Bar-->
-                                
-
-
                                 <div class="progress">
                                     <div class="progress-bar progress-bar-striped progress-bar-animated" 
-                                         role="progressbar" id="progressBar" style="width: 10%" aria-valuenow="10" 
-                                         aria-valuemin="0" aria-valuemax="100"></div>
+                                         role="progressbar" 
+                                        
+                                         style="width: 0%"
+                                         aria-valuenow="0" 
+                                         aria-valuemin="0" 
+                                         aria-valuemax="100">
+                                      </div>
                                 </div>
-
-
                                 <!-- Choose picture button-->
-                                <input type="file" id="file-selector">
+                                <input type="file" id="file-selector" accept="image/*">
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                              <button type="button" class="btn btn-primary">Upload</button>
+                              <button type="button" id="confirm" class="btn btn-primary" disabled>Upload</button>
                             </div>
                           </div>
                         </div>
@@ -171,21 +171,13 @@
 
 
 
-
-
-
-
-
-
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-
      <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-storage.js"></script>
 
-    
     <script>
     // Your web app's Firebase configuration
     var firebaseConfig = {
@@ -201,44 +193,59 @@
     // Initialize Firebase  
     firebase.initializeApp(firebaseConfig);
 
+
+
     // UPLOADING IMAGES 
-
-    // Progress Bar
-    var progressBar = document.getElementById("progressBar");
-    // file Button
+    // var progressBar = document.getElementById("progressBar");
     var fileButton = document.getElementById("file-selector");
-
-    //Listen for File Selection
-    fileButton.addEventListener('change', function(e){
-
-      //Get file
-      var file = e.target.files[0];
-
-      //Create Storage reference
-      var storageRef = firebase.storage().ref('image/' + file.name);
-
-      //Upload file
-      var task = storageRef.put(file);
-
-      //Update progress bar
-      task.on('state changed',
-
+    var confirm = document.getElementById("confirm");
+    var photo;
+    // Listen for File Selection
+    fileButton.addEventListener('change', selectFile, false);
+    function selectFile(){
+      photo = this.files[0];
+      //If a file is selected, make upload button available
+      if (photo != null){
+        confirm.removeAttribute("disabled");
+      }
+    }
+    // Listen for file upload confirm
+    confirm.addEventListener('click', confirmUpload);
+    function confirmUpload(){
+      // Storage reference
+      imageRef = firebase.storage().ref('image/' + photo.name);
+      // Upload
+      var task = imageRef.put(photo);
+      // Update progress bar
+      task.on('state_changed', 
         function progress(snapshot){
-          var percentage = (snapshot.bytesTransferred / 
-          snapshot.totalBytes) * 100;
-          progressBar.value = percentage;
+          var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          var progressBar = $('.progress-bar');
+          progressBar.css('width', percentage + '%');
+          progressBar.attr('aria-valuenow', percentage);
+          console.log(percentage);
         },
-
         function error(err){
+          console.log('An error occured while uploading.');
 
+          //What if the image names are the same?
         },
+        function complete(refreshIntervalID){
+          console.log("Image uploaded successfully");
 
-        function complete(){
+          // TO-DO DATABASE WORK, RENAME AND ADD IMAGE TO GALLERY, ADD METADATA TO FANCYBOX
 
+
+
+
+
+
+
+          //Refresh Page
+          location.reload();
         }
       );
-    });
-
+    }
     </script>
 
 
