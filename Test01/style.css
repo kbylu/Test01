@@ -22,3 +22,9 @@
 #aboutcat{
   float: right;
 }
+
+/* 
+.fixedScrolling{
+  position: fixed;
+  top: 20px;
+} */
