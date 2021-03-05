@@ -24,7 +24,7 @@
     <!--Top Navigation Menu-->
     <nav class="navbar mb-5 navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">KBY CREATIVE</a>
+        <a class="navbar-brand" href="index.html">KBY CREATIVE</a>
         <button class="navbar-toggler" type="button" 
                 data-bs-toggle="collapse" 
                 data-bs-target="#navbarText" 
@@ -39,14 +39,16 @@
               <a class="nav-link active" aria-current="page" href="#">GALLERY</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">ABOUT</a>
+              <a class="nav-link" href="about.html">ABOUT</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">CONTACT</a>
+              <a class="nav-link" href="contact.html">CONTACT</a>
             </li>
           </ul>
           <span class="navbar-text">
-            Logo
+            
+            <!-- Logo -->
+
           </span>
         </div>
       </div>
@@ -58,24 +60,9 @@
           <div class="row">
             <div class="col-3">
               <div class="row">
-                <h1>2021</h1>
-                <p>WIP: test website for learning web dev</p>
+                <h1>Gallery</h1>
                 <p>
-                  TO-DO:  
-                  <ul>
-                    <li>
-                      Optimise for mobile viewports
-                    </li>
-                    <li>
-                      About Page, Contact Page, Social media links
-                    </li>
-                    <li>
-                      Firebase cloud function for backend
-                    </li>
-                    <li>
-                      extract meta data from uploaded images
-                    </li>
-                  </ul>
+                  Thanks for checking out my little side project. Feel free to upload a photo of yourself below using the key provided to you! 
                 </p>
               </div>
               <div class="row">         
@@ -134,7 +121,6 @@
             </div>
             <div class="col-9">
               <div class="row">
-                <h1>Gallery</h1>
               </div>
               <div class="row" id="gallery">
                 <div class="col-6 col-lg-4 column">
@@ -186,7 +172,7 @@
     </main>
 
     <!--Footer Social Media Icons-->
-    <nav class="navbar navbar-expand navbar-light bg-light">
+    <nav class="navbar fixed-bottom navbar-expand navbar-light bg-light">
       <div class="container">
         <div class="navbar">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -235,7 +221,10 @@
     // var progressBar = document.getElementById("progressBar");
     var fileButton = document.getElementById("file-selector");
     var confirm = document.getElementById("confirm");
+    var storage = firebase.storage();
     var photo;
+
+
     // Listen for File Selection
     fileButton.addEventListener('change', selectFile, false);
     function selectFile(){
@@ -263,16 +252,9 @@
         function error(err){
           console.log('An error occured while uploading.');
 
-          //What if the image names are the same?
         },
         function complete(refreshIntervalID){
           console.log("Image uploaded successfully");
-
-          // TO-DO DATABASE WORK, RENAME AND ADD IMAGE TO GALLERY, ADD METADATA TO FANCYBOX
-          
-
-
-
 
           //Refresh Page
           location.reload();
@@ -304,10 +286,9 @@
         ]
       })
     </script>
+
     <!-- Key checker-->
     <script src="resource/js/keyCheck.js"></script>
-
-    <!-- <script type="module" src="resource/js/addPhoto.js"></script> -->
 
   </body>
 </html>
