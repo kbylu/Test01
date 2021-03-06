@@ -12,6 +12,9 @@
 .upload-section{
   visibility: hidden;
 }
+.upload-button{
+  margin-bottom: 2em;
+}
 .about h1 {
   font-size: 2.5em;
 }
