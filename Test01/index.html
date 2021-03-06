@@ -209,7 +209,7 @@
     // var progressBar = document.getElementById("progressBar");
     var fileButton = document.getElementById("file-selector");
     var confirm = document.getElementById("confirm");
-    var storage = firebase.storage();
+    var storageRef = firebase.storage().ref();
     var photo;
 
 
@@ -239,14 +239,31 @@
         },
         function error(err){
           console.log('An error occured while uploading.');
-
-          //What if the image names are the same?
-
-
           
         },
         function complete(refreshIntervalID){
           console.log("Image uploaded successfully");
+          console.log("File name: " + photo.name);
+          
+
+          //Let users upload caption with picture
+          // var metaRef = storageRef.child('image/'+ photo.name);
+
+          // //TO-DO link this custom caption to textbox in modal
+          // var caption = {
+          //   customCaption: {
+          //     'Caption': 'hello test' 
+          //   }
+          // };
+          //   metaRef.updateMetadata(caption)
+          //   .then((metadata) => {
+
+
+          //   }).catch((error) => {
+          //     console.log("An error occured while uploading a caption");
+          //   });
+
+
 
           //Refresh Page
           location.reload();
