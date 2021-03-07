@@ -25,9 +25,18 @@
 #aboutcat{
   float: right;
 }
-
-/* 
-.fixedScrolling{
-  position: fixed;
-  top: 20px;
-} */
+#KBYlogo{
+  max-width: 10%;
+  float: right;
+}
+.gallery img:hover {
+  -webkit-filter: brightness(70%);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+img {
+  -webkit-filter: brightness(100%);
+}
