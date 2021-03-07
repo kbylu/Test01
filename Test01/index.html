@@ -56,8 +56,9 @@
 
     <main>
       <section class="gallery">
-        <div class="container col-6 mx-auto">
+        <div class="container col-6 mx-auto" id="row1">
           <div class="row">
+
             <h1>Gallery</h1>
             <p>
               Thanks for checking out my little side project. Feel free to upload a photo of yourself below using the key provided to you! 
@@ -135,16 +136,21 @@
                       <img src="resource/image/IMG_20200902_105831.jpg" alt="" />
                     </a>
                   </figure>
+                  <figure class="mb-4">
+                    <a href="resource/image/156207944_462182061572629_9189712933422446778_n.png" data-fancybox="image" data-caption="James Yang">
+                      <img src="resource/image/156207944_462182061572629_9189712933422446778_n.png" alt="" />
+                    </a>
+                  </figure>
                 </div>
                 <div class="col-6 col-lg-4">
                   <figure class="mb-4">
-                    <a href="resource/image/14440714_1358544157489334_4481831843659335274_n.jpg" data-fancybox="image" data-caption="Owen Zhao">
-                      <img src="resource/image/14440714_1358544157489334_4481831843659335274_n.jpg" alt="" />
+                    <a href="resource/image/796BA4DF-5115-4D62-8A96-8EB96EB2CFAC.jpeg" data-fancybox="image" data-caption="Serena Zha">
+                      <img src="resource/image/796BA4DF-5115-4D62-8A96-8EB96EB2CFAC.jpeg" alt="" />
                     </a>
                   </figure>
                   <figure class="mb-4">
-                    <a href="resource/image/796BA4DF-5115-4D62-8A96-8EB96EB2CFAC.jpeg" data-fancybox="image" data-caption="Serena Zha">
-                      <img src="resource/image/796BA4DF-5115-4D62-8A96-8EB96EB2CFAC.jpeg" alt="" />
+                    <a href="resource/image/14440714_1358544157489334_4481831843659335274_n.jpg" data-fancybox="image" data-caption="Owen Zhao">
+                      <img src="resource/image/14440714_1358544157489334_4481831843659335274_n.jpg" alt="" />
                     </a>
                   </figure>
                   <figure class="mb-4">
@@ -173,7 +179,7 @@
     </main>
 
     <!--Footer Social Media Icons-->
-    <nav class="navbar fixed-bottom navbar-expand navbar-light bg-light">
+    <nav class="navbar navbar-expand navbar-light bg-light">
       <div class="container">
         <div class="navbar">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -226,6 +232,7 @@
     var confirm = document.getElementById("confirm");
     var storageRef = firebase.storage().ref();
     var photo;
+    var percentage;
 
 
     // Listen for File Selection
@@ -247,11 +254,13 @@
       // Update progress bar
       task.on('state_changed', 
         function progress(snapshot){
-          var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           var progressBar = $('.progress-bar');
           progressBar.css('width', percentage + '%');
           progressBar.attr('aria-valuenow', percentage);
+
         },
+
         function error(err){
           console.log('An error occured while uploading.');
           
@@ -259,29 +268,29 @@
         function complete(refreshIntervalID){
           console.log("Image uploaded successfully");
           console.log("File name: " + photo.name);
+
+          // Hide the modal after upload complete
+          function closeModal(){
+            if (percentage == 100){
+            var modal = document.getElementById("uploadModal");
+            var bmodal = bootstrap.Modal.getInstance(modal);
+            bmodal.hide();
+            }
+          }
+          setTimeout(function(){ 
+            closeModal(); 
+          }, 2000);
           
-
-          //Let users upload caption with picture
-          // var metaRef = storageRef.child('image/'+ photo.name);
-
-          // //TO-DO link this custom caption to textbox in modal
-          // var caption = {
-          //   customCaption: {
-          //     'Caption': 'hello test' 
-          //   }
-          // };
-          //   metaRef.updateMetadata(caption)
-          //   .then((metadata) => {
-
-
-          //   }).catch((error) => {
-          //     console.log("An error occured while uploading a caption");
-          //   });
-
-
-
-          //Refresh Page
-          location.reload();
+          // Create success alert
+          function createUploadAlert(){
+            var alert = document.createElement('div');
+            alert.className = "alert alert-success alert-dismissible fade show"
+            alert.setAttribute('role', 'alert');
+            alert.setAttribute('id','uploadAlert');
+            alert.innerHTML = 'Image Uploaded Successfully'
+            document.getElementById('row1').appendChild(alert);
+          }
+          createUploadAlert();
         }
       );
     }
