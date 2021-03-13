@@ -6,8 +6,11 @@
   width: 100%;
   height: auto;
 }
+.gallery {
+  margin-bottom: 100px;
+}
 .progress {
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 }
 .upload-section{
   visibility: hidden;
@@ -16,14 +19,10 @@
   margin-bottom: 2em;
 }
 .about h1 {
-  font-size: 2.5em;
+  font-size: 2em;
 }
 .about p{
-  float: left;
-  font-size: 1.5em;
-}
-#aboutcat{
-  float: right;
+  font-size: 1.2em;
 }
 #KBYlogo{
   max-width: 10%;
@@ -37,6 +36,12 @@
   -ms-transition: all 1s ease;
   transition: all 1s ease;
 }
-img {
+.gallery img {
   -webkit-filter: brightness(100%);
+}
+
+.banner {
+  display:block;
+  height:100px;
+  overflow:scroll;
 }
